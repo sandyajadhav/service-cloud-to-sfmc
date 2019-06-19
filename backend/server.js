@@ -28,9 +28,8 @@ app.post('/activity/execute', (req, res) => {
 // Routes for saving, publishing and validating the custom activity. In this case
 // nothing is done except decoding the jwt and replying with a success message.
 app.post(/\/activity\/(save|publish|validate)/, (req, res) => {
-    console.log('Save, publish and validate is called!');
+    console.log('Save2, publish and validate is called!');
     // verification error -> unauthorized request
-    if (err)	return res.status(401).end();
     return res.status(200).json({success: true});
 });
 
