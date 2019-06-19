@@ -1,5 +1,5 @@
 {
-	"name": "<NAME OF YOUR BACKEND MODULE>",
+	"name": "sfmc-to-service-cloud",
 	"version": "0.0.2",
 	"description": "Backend for the Salesforce Service Cloud custom split activity",
 	"main": "backend/server.js",
@@ -15,8 +15,8 @@
 	"options": {
 		"salesforce": {
 			"serviceCloud": {
-				"username": "<YOUR SERVICE CLOUD USERNAME>",
-				"password": "<YOUR SERVICE CLOUD PASSWORD>",
+				"username": "test",
+				"password": "test",
 				"loginUrl": "https://login.salesforce.com"
 			},
 			"marketingCloud": {
