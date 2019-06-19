@@ -13,6 +13,8 @@ const sfdc = new ServiceCloud(Pkg.options.salesforce.serviceCloud);
 
 const app = express();
 
+var count = 0;
+
 // Register middleware that parses the request payload.
 app.use(require('body-parser').raw({
 	type: 'application/jwt'
@@ -21,8 +23,17 @@ app.use(require('body-parser').raw({
 // Route that is called for every contact who reaches the custom split activity
 app.post('/activity/execute', (req, res) => {
     // verification error -> unauthorized request
+    count += 1;
     console.log('Execute method is called!');
-    return res.status(200).json({branchResult: 'Success'});
+
+    if (count % 2 == 0) {
+        console.log('Execute method: Success');
+
+        return res.status(200).json({branchResult: 'Success'});
+    } else {
+        console.log('Execute method: Failure');
+        return res.status(200).json({branchResult: 'Failure'});
+    }
 });
 
 // Routes for saving, publishing and validating the custom activity. In this case
