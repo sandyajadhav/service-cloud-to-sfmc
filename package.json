@@ -1,6 +1,6 @@
 {
 	"name": "sfmc-to-service-cloud",
-	"version": "0.0.2",
+	"version": "0.2.0",
 	"description": "Backend for the Salesforce Service Cloud custom split activity",
 	"main": "backend/server.js",
 	"scripts": {
