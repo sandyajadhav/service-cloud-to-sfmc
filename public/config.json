@@ -14,7 +14,7 @@
 	"configurationArguments": {
 		"applicationExtensionKey": "7ca6e3d1-9d2a-4881-84ff-abc0394dc3d9",
 		"save": {
-			"url": "hhttps://sfmc-test-app1.herokuapp.com/activity/save",
+			"url": "https://sfmc-test-app1.herokuapp.com/activity/save",
 			"verb": "POST",
 			"body": "",
 			"useJwt": true,
