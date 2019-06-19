@@ -14,21 +14,21 @@
 	"configurationArguments": {
 		"applicationExtensionKey": "7ca6e3d1-9d2a-4881-84ff-abc0394dc3d9",
 		"save": {
-			"url": "https://sfmc-test-app1.herokuapp.com/activity/save",
+			"url": "https://sfmc-test-app2.herokuapp.com/activity/save",
 			"verb": "POST",
 			"body": "",
 			"useJwt": true,
 			"customerKey": "test"
 		},
 		"publish": {
-			"url": "https://sfmc-test-app1.herokuapp.com/activity/publish",
+			"url": "https://sfmc-test-app2.herokuapp.com/activity/publish",
 			"verb": "POST",
 			"body": "",
 			"useJwt": true,
 			"customerKey": "test"
 		},
 		"validate": {
-			"url": "https://sfmc-test-app1.herokuapp.com/activity/validate",
+			"url": "https://sfmc-test-app2.herokuapp.com/activity/validate",
 			"verb": "POST",
 			"body": "",
 			"useJwt": true,
@@ -69,7 +69,7 @@
 		"execute": {
 			"inArguments": [],
 			"outArguments": [],
-			"url": "https://sfmc-test-app1.herokuapp.com/activity/execute",
+			"url": "https://sfmc-test-app2.herokuapp.com/activity/execute",
 			"verb": "POST",
 			"body": "",
 			"header": "",
@@ -80,7 +80,7 @@
 		}
 	},
 	"edit": {
-		"url": "https://sfmc-test-app1.herokuapp.com/index.html",
+		"url": "https://sfmc-test-app2.herokuapp.com/index.html",
 		"height": 200,
 		"width": 500
 	}
