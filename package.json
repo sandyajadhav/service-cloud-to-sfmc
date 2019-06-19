@@ -20,7 +20,7 @@
 				"loginUrl": "https://login.salesforce.com"
 			},
 			"marketingCloud": {
-				"jwtSecret": "<YOUR UNCONVERTED SALT KEY HERE>"
+				"jwtSecret": "test"
 			}
 		}
 	}
