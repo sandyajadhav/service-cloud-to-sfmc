@@ -1,5 +1,4 @@
 {
-	"key": "<YOUR APPLICATION EXTENSION KEY HERE>",
 	"metaData": {
 		"icon": "images/icon.png",
 		"iconSmall": "images/icon_small.png"
@@ -13,27 +12,27 @@
 	},
 	"workflowApiVersion": "1.1",
 	"configurationArguments": {
-		"applicationExtensionKey": "<YOUR APPLICATION EXTENSION KEY HERE>",
+		"applicationExtensionKey": "7ca6e3d1-9d2a-4881-84ff-abc0394dc3d9",
 		"save": {
-			"url": "https://<URL OF THE SERVER RUNNING THE BACKEND>/activity/save",
+			"url": "hhttps://sfmc-test-app1.herokuapp.com/activity/save",
 			"verb": "POST",
 			"body": "",
 			"useJwt": true,
-			"customerKey": "<EXTERNAL KEY OF THE SALT KEY FOR THE JWT>"
+			"customerKey": "test"
 		},
 		"publish": {
-			"url": "https://<URL OF THE SERVER RUNNING THE BACKEND>/activity/publish",
+			"url": "https://sfmc-test-app1.herokuapp.com/activity/publish",
 			"verb": "POST",
 			"body": "",
 			"useJwt": true,
-			"customerKey": "<EXTERNAL KEY OF THE SALT KEY FOR THE JWT>"
+			"customerKey": "test"
 		},
 		"validate": {
-			"url": "https://<URL OF THE SERVER RUNNING THE BACKEND>/activity/validate",
+			"url": "https://sfmc-test-app1.herokuapp.com/activity/validate",
 			"verb": "POST",
 			"body": "",
 			"useJwt": true,
-			"customerKey": "<EXTERNAL KEY OF THE SALT KEY FOR THE JWT>"
+			"customerKey": "test"
 		}
 	},
 	"wizardSteps": [
@@ -43,18 +42,18 @@
 	"outcomes": [
 		{
 			"arguments": {
-				"branchResult": "<KEY FOR PATH 1>"
+				"branchResult": "Success"
 			},
 			"metaData": {
-				"label": "<LABEL FOR PATH 1>"
+				"label": "Success"
 			}
 		},
 		{
 			"arguments": {
-				"branchResult": "<KEY FOR PATH 2>"
+				"branchResult": "Failure"
 			},
 			"metaData": {
-				"label": "<LABEL FOR PATH 2>"
+				"label": "Failure"
 			}
 		}
 	],
@@ -70,18 +69,18 @@
 		"execute": {
 			"inArguments": [],
 			"outArguments": [],
-			"url": "https://<URL OF THE SERVER RUNNING THE BACKEND>/activity/execute",
+			"url": "https://sfmc-test-app1.herokuapp.com/activity/execute",
 			"verb": "POST",
 			"body": "",
 			"header": "",
 			"format": "json",
 			"useJwt": true,
-			"customerKey": "<EXTERNAL KEY OF THE SALT KEY FOR THE JWT>",
+			"customerKey": "test",
 			"timeout": 90000
 		}
 	},
 	"edit": {
-		"url": "https://<URL OF THE SERVER RUNNING THE BACKEND>/index.html",
+		"url": "https://sfmc-test-app1.herokuapp.com/index.html",
 		"height": 200,
 		"width": 500
 	}
