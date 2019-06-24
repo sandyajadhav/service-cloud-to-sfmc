@@ -45,7 +45,7 @@
 				"branchResult": "Success"
 			},
 			"metaData": {
-				"label": "Success"
+				"label": "Yes"
 			}
 		},
 		{
@@ -53,7 +53,7 @@
 				"branchResult": "Failure"
 			},
 			"metaData": {
-				"label": "Failure"
+				"label": "No"
 			}
 		}
 	],
