@@ -86,6 +86,7 @@ app.post('/journeybuilder/p13n/execute', async function(req, res){
 }
 
 
+ console.log("Final Resposne: "+JSON.parse(res.body))
     //console.log('P13n api is called');
     //await  work();
 });
