@@ -55,12 +55,10 @@ app.post('/journeybuilder/p13n/execute', async function (req, res) {
     logData(req);
     console.log('p13n api is called');
 
-    res.on('finish', function () {
-        console.log("Body: " + res.body);
-    });
-
     let url = "https://sfmc-customactivity-l2.ancestry.com/journeybuilder/p13n/execute";
     if (count % 2 == 1) {
+        console.log('redirected request');
+
         // res.redirect(307,url);
 
         Request.post({
@@ -81,7 +79,7 @@ app.post('/journeybuilder/p13n/execute', async function (req, res) {
 
     }
 
-    console.log("Body1: "+res.body);
+    console.log("Final Response: "+res.body);
 
     //console.log('P13n api is called');
     //await  work();
