@@ -62,20 +62,18 @@ app.post('/journeybuilder/p13n/execute', async function(req, res){
 
     let url = "https://sfmc-customactivity-l2.ancestry.com/journeybuilder/p13n/execute";
     if (count % 2  ==0){
-         res.redirect(307,url);
+        // res.redirect(307,url);
 
-        console.log(url);
-        console.log("statusCode: ", res.statusCode); // <======= Here's the status code
-        console.log("headers: ", JSON.stringify(res.headers));
-        //console.log("Body: "+res.body);
 
-        res.body = "";
-        res.on('data', function (chunk) {
-            res.body += chunk;
-        });
-
-        res.on('end', function () {
-            console.log(res.body);
+        Request.post({
+                         "headers": { "content-type": "application/jwt" },
+                         "url": "https://sfmc-customactivity-l2.ancestry.com/journeybuilder/p13n/execute",
+                         "body": req.body
+                     }, (error, response, body) => {
+            if(error) {
+                return console.dir(error);
+            }
+            console.dir(JSON.parse(body));
         });
 
     }else
