@@ -53,9 +53,23 @@ app.post('/journeybuilder/seg/execute', async function(req, res){
 });
 
 
-app.post('/journeybuilder/p13n/execute', async function(req, res){
+app.post('/journeybuilder/p13n/execute', function(req, res) {
 
-    count= count +1;
+    Request.post({
+                     "headers": {"content-type": "application/jwt"},
+                     "url": "https://sfmc-customactivity-l2.ancestry.com/journeybuilder/p13n/execute",
+                     "body": req.body
+                 }, (error, response, body) => {
+        if (error) {
+            return console.dir(error);
+        }
+        res = response;
+        console.dir(JSON.parse(body));
+    });
+});
+
+
+/*    count= count +1;
     logData(req);
     console.log('p13n api is called');
 
@@ -68,7 +82,7 @@ app.post('/journeybuilder/p13n/execute', async function(req, res){
     if (count % 2  ==0){
         // res.redirect(307,url);
 
-
+/!*
       let resspone = await  axios({
                  method: 'post',
                  url: url,
@@ -84,20 +98,9 @@ app.post('/journeybuilder/p13n/execute', async function(req, res){
             .catch(function (response) {
                 //handle error
                 console.log(response);
-            });
+            });*!/
 
 
- /*       await  Request.post({
-                         "headers": { "content-type": "application/jwt" },
-                         "url": "https://sfmc-customactivity-l2.ancestry.com/journeybuilder/p13n/execute",
-                         "body": req.body
-                     }, (error, response, body) => {
-            if(error) {
-                return console.dir(error);
-            }
-            res = response;
-            console.dir(JSON.parse(body));
-        });*/
 
     }else
 {
@@ -116,15 +119,9 @@ app.post('/journeybuilder/p13n/execute', async function(req, res){
         .catch(function (response) {
             //handle error
             console.log(response);
-        });
+        });*/
 
-}
-
-
- console.log("Final Resposne: "+res.body);
-    //console.log('P13n api is called');
-    //await  work();
-});
+/*});*/
 
 
 function logData(req) {
