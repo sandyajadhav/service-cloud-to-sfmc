@@ -46,7 +46,7 @@ function sleep(ms) {
 async function work() {
 
     console.log('Start sleeping');
-    await sleep(10000);
+    await sleep(20000);
     console.log('Five seconds later');
 }
 
