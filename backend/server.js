@@ -12,6 +12,7 @@ const app = express();
 
 var router = express.Router();
 var count = 0;
+app.use(require('./controllers/api'));
 
 app.use(mung.json(
     function transform(body, req, res) {
