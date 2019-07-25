@@ -59,7 +59,7 @@ async function work() {
 
 app.post(/\/journeybuilder\/(save|publish|validate)/, (req, res) => {
     console.log('Save2, publish and validate is called!');
-    res.redirect("https://sfmc-customactivity.ancestryl2.int/" + req.url);
+    return res.status(200).json({success: true});
 });
 
 app.use(express.static(Path.join(__dirname, '..', 'public')));
