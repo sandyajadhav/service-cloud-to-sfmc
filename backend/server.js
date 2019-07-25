@@ -66,7 +66,7 @@ app.post('/journeybuilder/p13n/execute', async function(req, res) {
         res = response;
         console.dir(JSON.parse(body));
     })
-    console.log(res.body);
+    console.log("Final Response"+res.body);
     res.send();
 
 });
