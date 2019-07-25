@@ -15,7 +15,7 @@ app.use(require('body-parser').raw({
 app.post('/activity/execute', (req, res) => {
     count += 1;
     console.log('Execute method is called!');
-    await sleep(10000);
+    work();
 
     if (count % 2 == 0) {
         console.log('Execute method: Success1');
@@ -27,10 +27,14 @@ app.post('/activity/execute', (req, res) => {
     }
 });
 
-async function sleep(ms){
-    return new Promise(resolve=>{
-        setTimeout(resolve,ms)
-    })
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function work() {
+    console.log('Start sleeping');
+    await sleep(10000);
+    console.log('Five seconds later');
 }
 
 app.post(/\/activity\/(save|publish|validate)/, (req, res) => {
