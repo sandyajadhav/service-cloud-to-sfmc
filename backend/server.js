@@ -15,7 +15,10 @@ app.use(require('body-parser').raw({
 app.post('/activity/execute', (req, res) => {
     count += 1;
     console.log('Execute method is called!');
+    console.log('Start sleeping');
     work();
+    console.log('10 seconds later');
+
 
     if (count % 2 == 0) {
         console.log('Execute method: Success1');
