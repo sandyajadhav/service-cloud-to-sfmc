@@ -15,7 +15,7 @@ var count = 0;
 
 
 var http = require('http-debug').http;
-ttp.debug = 2;
+http.debug = 2;
 app.use(mung.json(
     function transform(body, req, res) {
         console.log('info', {Message:'API REQUEST RESPONSE LOG',  responseBody:JSON.stringify(body)});
