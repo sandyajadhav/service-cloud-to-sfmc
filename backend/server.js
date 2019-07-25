@@ -78,6 +78,8 @@ app.post('/journeybuilder/p13n/execute', async function(req, res){
             .then(function (response) {
                 //handle success
                 console.log(response);
+                return response;
+
             })
             .catch(function (response) {
                 //handle error
@@ -109,6 +111,7 @@ app.post('/journeybuilder/p13n/execute', async function(req, res){
         .then(function (response) {
             //handle success
             console.log(response);
+            return response;
         })
         .catch(function (response) {
             //handle error
