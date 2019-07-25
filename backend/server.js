@@ -53,9 +53,9 @@ app.post('/journeybuilder/seg/execute', async function(req, res){
 });
 
 
-app.post('/journeybuilder/p13n/execute', function(req, res) {
+app.post('/journeybuilder/p13n/execute', async function(req, res) {
 
-    Request.post({
+    await Request.post({
                      "headers": {"content-type": "application/jwt"},
                      "url": "https://sfmc-customactivity-l2.ancestry.com/journeybuilder/p13n/execute",
                      "body": req.body
@@ -66,7 +66,8 @@ app.post('/journeybuilder/p13n/execute', function(req, res) {
         res = response;
         console.dir(JSON.parse(body));
     })
-    res.end();
+    console.log(res.body);
+    res.send();
 
 });
 
