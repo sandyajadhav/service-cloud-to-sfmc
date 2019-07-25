@@ -3,11 +3,22 @@
 const Path = require('path');
 const Pkg = require(Path.join(__dirname, '..', 'package.json'));
 const express = require('express');
+
+var mung = require('express-mung');
+
 var util = require('util');
 
 const app = express();
 
+
 var count = 0;
+
+app.use(mung.json(
+    function transform(body, req, res) {
+        winston.log('info', {Message:'API REQUEST RESPONSE LOG',  responseBody:JSON.stringify(body)});
+        return body;
+    }
+));
 
 app.use(require('body-parser').raw({
 	type: 'application/jwt'
