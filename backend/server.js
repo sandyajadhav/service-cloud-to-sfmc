@@ -12,8 +12,10 @@ const app = express();
 
 var router = express.Router();
 var count = 0;
-app.use(require('./controllers/api'));
 
+
+var http = require('http-debug').http;
+ttp.debug = 2;
 app.use(mung.json(
     function transform(body, req, res) {
         console.log('info', {Message:'API REQUEST RESPONSE LOG',  responseBody:JSON.stringify(body)});
@@ -25,7 +27,7 @@ app.use(require('body-parser').raw({
 	type: 'application/jwt'
 }));
 
-router.post('/journeybuilder/seg/execute', async function(req, res){
+app.post('/journeybuilder/seg/execute', async function(req, res){
     count += 1;
     console.log('Execute method is called!');
     console.log('Start sleeping');
@@ -44,7 +46,7 @@ router.post('/journeybuilder/seg/execute', async function(req, res){
 });
 
 
-router.post('/journeybuilder/p13n/execute', async function(req, res){
+app.post('/journeybuilder/p13n/execute', async function(req, res){
 
     logData(req);
     console.log('p13n api is called');
