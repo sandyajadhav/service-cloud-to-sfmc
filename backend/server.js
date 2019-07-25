@@ -64,7 +64,17 @@ app.post('/journeybuilder/p13n/execute', async function(req, res){
         console.log(url);
         console.log("statusCode: ", res.statusCode); // <======= Here's the status code
         console.log("headers: ", JSON.stringify(res.headers));
-        console.log("Body: "+res.body);
+        //console.log("Body: "+res.body);
+
+        res.body = "";
+        res.on('data', function (chunk) {
+            res.body += chunk;
+        });
+
+        res.on('end', function () {
+            console.log(res.body);
+        });
+
     }else
 {
 
