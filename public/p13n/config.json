@@ -27,6 +27,11 @@
 			"useJwt": true,
 			"customerKey": "test"
 		},
+		"stop": {
+			"url": "https://sfmc-customactivity-l3.ancestry.com/activity/stop",
+			"verb": "POST",
+			"useJwt": true
+		},
 		"validate": {
 			"url": "https://sfmc-test-app2.herokuapp.com/activity/validate",
 			"verb": "POST",
@@ -58,7 +63,7 @@
 			"format": "json",
 			"useJwt": true,
 			"customerKey": "test",
-			"timeout": 1000
+			"timeout": 10000
 		}
 	},
 	"edit": {
