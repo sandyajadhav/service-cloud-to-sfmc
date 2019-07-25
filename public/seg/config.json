@@ -14,21 +14,21 @@
 	"configurationArguments": {
 		"applicationExtensionKey": "7ca6e3d1-9d2a-4881-84ff-abc0394dc3d9",
 		"save": {
-			"url": "https://sfmc-test-app2.herokuapp.com/activity/save",
+			"url": "https://sfmc-test-app2.herokuapp.com/journeybuilder/save",
 			"verb": "POST",
 			"body": "",
 			"useJwt": true,
 			"customerKey": "test"
 		},
 		"publish": {
-			"url": "https://sfmc-test-app2.herokuapp.com/activity/publish",
+			"url": "https://sfmc-test-app2.herokuapp.com/journeybuilder/publish",
 			"verb": "POST",
 			"body": "",
 			"useJwt": true,
 			"customerKey": "test"
 		},
 		"validate": {
-			"url": "https://sfmc-test-app2.herokuapp.com/activity/validate",
+			"url": "https://sfmc-test-app2.herokuapp.com/journeybuilder/validate",
 			"verb": "POST",
 			"body": "",
 			"useJwt": true,
@@ -69,7 +69,7 @@
 		"execute": {
 			"inArguments": [],
 			"outArguments": [],
-			"url": "https://sfmc-test-app2.herokuapp.com/activity/seg/execute",
+			"url": "https://sfmc-test-app2.herokuapp.com/journeybuilder/seg/execute",
 			"verb": "POST",
 			"body": "",
 			"header": "",

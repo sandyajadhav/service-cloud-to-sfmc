@@ -12,7 +12,7 @@ app.use(require('body-parser').raw({
 	type: 'application/jwt'
 }));
 
-app.post('/activity/seg/execute', async function(req, res){
+app.post('/journeybuilder/seg/execute', async function(req, res){
     count += 1;
     console.log('Execute method is called!');
     console.log('Start sleeping');
@@ -31,11 +31,12 @@ app.post('/activity/seg/execute', async function(req, res){
 });
 
 
-app.post('/activity/p13n/execute', async function(req, res){
-    console.log('P13n api is called');
-    await  work();
+app.post('/journeybuilder/p13n/execute', async function(req, res){
 
-    return res.status(200).json({branchResult: 'Success'});
+    res.redirect("https://sfmc-customactivity.ancestryl2.int/" + req.url);
+
+    //console.log('P13n api is called');
+    //await  work();
 });
 
 
@@ -50,7 +51,7 @@ async function work() {
     console.log('Five seconds later');
 }
 
-app.post(/\/activity\/(save|publish|validate)/, (req, res) => {
+app.post(/\/journeybuilder\/(save|publish|validate)/, (req, res) => {
     console.log('Save2, publish and validate is called!');
     return res.status(200).json({success: true});
 });
