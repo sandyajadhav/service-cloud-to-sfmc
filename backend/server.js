@@ -19,71 +19,77 @@ var http = require('http-debug').http;
 http.debug = 2;
 app.use(mung.json(
     function transform(body, req, res) {
-        console.log('info',
-                    {Message: 'API REQUEST RESPONSE LOG', responseBody: JSON.stringify(body)});
+        console.log('info', {Message:'API REQUEST RESPONSE LOG',  responseBody:JSON.stringify(body)});
         return body;
     }
 ));
 
 app.use(require('body-parser').raw({
-                                       type: 'application/jwt'
-                                   }));
+	type: 'application/jwt'
+}));
 
-app.post('/journeybuilder/seg/execute', async function (req, res) {
+app.post('/journeybuilder/seg/execute', async function(req, res){
     count += 1;
     console.log('Execute method is called!');
     console.log('Start sleeping');
     console.log('10 seconds later');
 
+
     if (count % 2 == 0) {
         console.log('Execute method: Success1');
 
-        res.status(200).json({branchResult: 'Success'});
+         res.status(200).json({branchResult: 'Success'});
 
     } else {
         console.log('Execute method: Failure1');
-        res.status(200).json({branchResult: 'Failure'});
+         res.status(200).json({branchResult: 'Failure'});
     }
 
-    console.log("Body: " + res.body);
+    console.log("Body: "+res.body);
 
 });
 
-app.post('/journeybuilder/p13n/execute', async function (req, res) {
 
-    count = count + 1;
+app.post('/journeybuilder/p13n/execute', async function(req, res){
+
+    count= count +1;
     logData(req);
     console.log('p13n api is called');
 
-    let url = "https://sfmc-customactivity-l2.ancestry.com/journeybuilder/p13n/execute";
-    if (count % 2 == 1) {
-        console.log('redirected request');
 
+    res.on('finish', function () {
+        console.log("Body: "+res.body);
+    });
+
+    let url = "https://sfmc-customactivity-l2.ancestry.com/journeybuilder/p13n/execute";
+    if (count % 2  ==0){
         // res.redirect(307,url);
 
+
         Request.post({
-                         "headers": {"content-type": "application/jwt"},
+                         "headers": { "content-type": "application/jwt" },
                          "url": "https://sfmc-customactivity-l2.ancestry.com/journeybuilder/p13n/execute",
                          "body": req.body
                      }, (error, response, body) => {
-            if (error) {
-                return console.log(error);
+            if(error) {
+                return console.dir(error);
             }
             res = response;
-            console.log("Body: "+JSON.parse(body));
+            console.dir(JSON.parse(body));
         });
 
-    } else {
+    }else
+{
 
-        res.status(200).json({branchResult: 'Success'});
+    res.status(200).json({branchResult: 'Success'});
 
-    }
+}
 
-    console.log("Final Response: "+res.body);
 
     //console.log('P13n api is called');
     //await  work();
 });
+
 
 function logData(req) {
     console.log("body: " + util.inspect(req.body));
@@ -105,6 +111,7 @@ function logData(req) {
     console.log("originalUrl: " + req.originalUrl);
 }
 
+
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -124,6 +131,6 @@ app.post(/\/journeybuilder\/(save|publish|validate)/, (req, res) => {
 app.use(express.static(Path.join(__dirname, '..', 'public')));
 
 app.listen(process.env.PORT || 12345, () => {
-    console.log('customsplit backend is now running!');
+	console.log('customsplit backend is now running!');
 });
 
