@@ -42,9 +42,11 @@ app.post('/journeybuilder/p13n/execute', async function(req, res){
         res.redirect(307,url);
         console.log(url);
         console.log("statusCode: ", res.statusCode); // <======= Here's the status code
-        console.log("headers: ", res.headers);
+        console.log("headers: ", JSON.stringify(res.headers));
         console.log("Body: "+res.body)
-
+    res.on('data', function (chunk) {
+        console.log('BODY: ' + chunk);
+    });
 
     //console.log('P13n api is called');
     //await  work();
