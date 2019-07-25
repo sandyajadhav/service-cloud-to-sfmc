@@ -34,7 +34,7 @@ app.post('/activity/seg/execute', async function(req, res){
 app.post('/activity/p13n/execute', async function(req, res){
     console.log('P13n api is called');
 
-    return res.status(200);
+    return res.status(200).json({branchResult: 'Success'});
 });
 
 
