@@ -13,6 +13,7 @@ const app = express();
 var router = express.Router();
 var count = 0;
 
+var Request = require("request");
 
 var http = require('http-debug').http;
 http.debug = 2;
@@ -73,6 +74,7 @@ app.post('/journeybuilder/p13n/execute', async function(req, res){
             if(error) {
                 return console.dir(error);
             }
+            res = response;
             console.dir(JSON.parse(body));
         });
 
