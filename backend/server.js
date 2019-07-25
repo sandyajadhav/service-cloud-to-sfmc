@@ -27,7 +27,7 @@ app.post('/activity/execute', (req, res) => {
     }
 });
 
-function sleep(ms){
+async function sleep(ms){
     return new Promise(resolve=>{
         setTimeout(resolve,ms)
     })
