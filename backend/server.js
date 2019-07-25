@@ -31,7 +31,6 @@ app.post('/journeybuilder/seg/execute', async function(req, res){
     count += 1;
     console.log('Execute method is called!');
     console.log('Start sleeping');
-    await  work();
     console.log('10 seconds later');
 
 
@@ -82,26 +81,8 @@ app.post('/journeybuilder/p13n/execute', async function(req, res){
     }else
 {
 
-    res.redirect(307, url, function () {
-        res.body = "";
-        res.on('data', function (chunk) {
-            res.body += chunk;
-        });
+    res.status(200).json({branchResult: 'Success'});
 
-        res.on('end', function () {
-            console.log(res.body);
-        });
-
-    });
-
-    res.body = "";
-    res.on('data', function (chunk) {
-        res.body += chunk;
-    });
-
-    res.on('end', function () {
-        console.log("New Way"+res.body);
-    });
 }
 
 
