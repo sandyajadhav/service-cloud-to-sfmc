@@ -5,6 +5,7 @@ const Pkg = require(Path.join(__dirname, '..', 'package.json'));
 const express = require('express');
 
 var mung = require('express-mung');
+var winston = require('winston');
 
 var util = require('util');
 
