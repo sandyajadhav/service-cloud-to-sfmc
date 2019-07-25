@@ -33,6 +33,7 @@ app.post('/activity/seg/execute', async function(req, res){
 
 app.post('/activity/p13n/execute', async function(req, res){
     console.log('P13n api is called');
+    await  work();
 
     return res.status(200).json({branchResult: 'Success'});
 });
@@ -45,7 +46,7 @@ function sleep(ms) {
 async function work() {
 
     console.log('Start sleeping');
-    await sleep(1000);
+    await sleep(10000);
     console.log('Five seconds later');
 }
 
