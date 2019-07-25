@@ -38,11 +38,15 @@ app.post('/journeybuilder/seg/execute', async function(req, res){
     if (count % 2 == 0) {
         console.log('Execute method: Success1');
 
-        return res.status(200).json({branchResult: 'Success'});
+         res.status(200).json({branchResult: 'Success'});
+
     } else {
         console.log('Execute method: Failure1');
-        return res.status(200).json({branchResult: 'Failure'});
+         res.status(200).json({branchResult: 'Failure'});
     }
+
+    console.log("Body: "+res.body);
+
 });
 
 
