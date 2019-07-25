@@ -12,7 +12,7 @@ app.use(require('body-parser').raw({
 	type: 'application/jwt'
 }));
 
-app.post('/activity/execute', async function(req, res){
+app.post('/activity/seg/execute', async function(req, res){
     count += 1;
     console.log('Execute method is called!');
     console.log('Start sleeping');
@@ -29,6 +29,14 @@ app.post('/activity/execute', async function(req, res){
         return res.status(200).json({branchResult: 'Failure'});
     }
 });
+
+
+app.post('/activity/p13n/execute', async function(req, res){
+    console.log('P13n api is called');
+
+    return res.status(200);
+});
+
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));

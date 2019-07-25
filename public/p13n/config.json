@@ -1,0 +1,69 @@
+{
+	"metaData": {
+		"icon": "images/icon.png",
+		"iconSmall": "images/icon_small.png"
+	},
+	"type": "REST",
+	"lang": {
+		"en-US": {
+			"name": "p13n",
+			"description": "p13n"
+		}
+	},
+	"workflowApiVersion": "1.1",
+	"configurationArguments": {
+		"applicationExtensionKey": "6c444b56-dfcf-4801-a95f-d19cc0898e94",
+		"save": {
+			"url": "https://sfmc-test-app2.herokuapp.com/activity/save",
+			"verb": "POST",
+			"body": "",
+			"useJwt": true,
+			"customerKey": "test"
+		},
+		"publish": {
+			"url": "https://sfmc-test-app2.herokuapp.com/activity/publish",
+			"verb": "POST",
+			"body": "",
+			"useJwt": true,
+			"customerKey": "test"
+		},
+		"validate": {
+			"url": "https://sfmc-test-app2.herokuapp.com/activity/validate",
+			"verb": "POST",
+			"body": "",
+			"useJwt": true,
+			"customerKey": "test"
+		}
+	},
+	"wizardSteps": [
+		{"key": "eventdefinitionkey", "label": "Event Definition Key"},
+		{"key": "idselection", "label": "ID Selection"}
+	],
+	"userInterfaces": {
+		"runningModal": {
+			"url": "runningModal.html"
+		},
+		"runningHover": {
+			"url": "runningHover.html"
+		}
+	},
+	"arguments": {
+		"execute": {
+			"inArguments": [],
+			"outArguments": [],
+			"url": "https://sfmc-test-app2.herokuapp.com/activity/p13/execute",
+			"verb": "POST",
+			"body": "",
+			"header": "",
+			"format": "json",
+			"useJwt": true,
+			"customerKey": "test",
+			"timeout": 200000
+		}
+	},
+	"edit": {
+		"url": "https://sfmc-test-app2.herokuapp.com/index.html",
+		"height": 200,
+		"width": 500
+	}
+}

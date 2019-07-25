@@ -6,8 +6,8 @@
 	"type": "RESTDECISION",
 	"lang": {
 		"en-US": {
-			"name": "Service Cloud Custom Split",
-			"description": "Custom Split activity that makes a decision based on data from Service Cloud"
+			"name": "Seg",
+			"description": "Seg"
 		}
 	},
 	"workflowApiVersion": "1.1",
@@ -69,7 +69,7 @@
 		"execute": {
 			"inArguments": [],
 			"outArguments": [],
-			"url": "https://sfmc-test-app2.herokuapp.com/activity/execute",
+			"url": "https://sfmc-test-app2.herokuapp.com/activity/seg/execute",
 			"verb": "POST",
 			"body": "",
 			"header": "",
