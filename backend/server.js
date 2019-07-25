@@ -5,7 +5,6 @@ const Pkg = require(Path.join(__dirname, '..', 'package.json'));
 const express = require('express');
 
 var mung = require('express-mung');
-var winston = require('winston');
 
 var util = require('util');
 
@@ -16,7 +15,7 @@ var count = 0;
 
 app.use(mung.json(
     function transform(body, req, res) {
-        winston.log('info', {Message:'API REQUEST RESPONSE LOG',  responseBody:JSON.stringify(body)});
+        console.log('info', {Message:'API REQUEST RESPONSE LOG',  responseBody:JSON.stringify(body)});
         return body;
     }
 ));
