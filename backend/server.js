@@ -3,7 +3,7 @@
 const Path = require('path');
 const Pkg = require(Path.join(__dirname, '..', 'package.json'));
 const express = require('express');
-var sleep = require('sleep');
+
 const app = express();
 
 var count = 0;
@@ -12,11 +12,11 @@ app.use(require('body-parser').raw({
 	type: 'application/jwt'
 }));
 
-app.post('/activity/execute', (req, res) => {
+app.post('/activity/execute', async function(req, res){
     count += 1;
     console.log('Execute method is called!');
     console.log('Start sleeping');
-    sleep.sleep(10000)
+    await  work();
     console.log('10 seconds later');
 
 
@@ -28,15 +28,16 @@ app.post('/activity/execute', (req, res) => {
         console.log('Execute method: Failure1');
         return res.status(200).json({branchResult: 'Failure'});
     }
-});
+}
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 async function work() {
+
     console.log('Start sleeping');
-    await sleep(100000);
+    await sleep(10000);
     console.log('Five seconds later');
 }
 
