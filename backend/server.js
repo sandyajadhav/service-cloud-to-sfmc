@@ -41,7 +41,7 @@ app.post('/journeybuilder/p13n/execute', async function(req, res){
         console.log(url);
         console.log("statusCode: ", res.statusCode); // <======= Here's the status code
         console.log("headers: ", res.headers);
-        console.log("Body"+res.body)
+        console.log("Body: "+res.body)
     }else{
         return res.status(200).json({branchResult: 'Success'});
     }
