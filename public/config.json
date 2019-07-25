@@ -76,7 +76,7 @@
 			"format": "json",
 			"useJwt": true,
 			"customerKey": "test",
-			"timeout": 100
+			"timeout": 200000
 		}
 	},
 	"edit": {
