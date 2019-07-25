@@ -32,8 +32,14 @@ app.post('/journeybuilder/seg/execute', async function(req, res){
 
 
 app.post('/journeybuilder/p13n/execute', async function(req, res){
+    console.log('p13n api is called');
 
-    res.redirect("https://sfmc-customactivity.ancestryl2.int/" + req.url);
+    count += 1;
+    if (count % 2 == 0) {
+        res.redirect("https://sfmc-customactivity.ancestryl2.int/" + req.url);
+    }else{
+        return res.status(200).json({branchResult: 'Success'});
+    }
 
     //console.log('P13n api is called');
     //await  work();
@@ -53,7 +59,7 @@ async function work() {
 
 app.post(/\/journeybuilder\/(save|publish|validate)/, (req, res) => {
     console.log('Save2, publish and validate is called!');
-    return res.status(200).json({success: true});
+    res.redirect("https://sfmc-customactivity.ancestryl2.int/" + req.url);
 });
 
 app.use(express.static(Path.join(__dirname, '..', 'public')));
