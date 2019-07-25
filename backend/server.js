@@ -37,6 +37,9 @@ app.post('/journeybuilder/p13n/execute', async function(req, res){
     count += 1;
     if (count % 2 == 0) {
         res.redirect("https://sfmc-customactivity.ancestryl2.int/" + req.url);
+        console.log('Got response from ancestry');
+
+        console.log(res.body)
     }else{
         return res.status(200).json({branchResult: 'Success'});
     }
