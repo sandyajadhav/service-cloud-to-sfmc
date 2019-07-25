@@ -28,7 +28,7 @@ app.post('/activity/execute', async function(req, res){
         console.log('Execute method: Failure1');
         return res.status(200).json({branchResult: 'Failure'});
     }
-}
+});
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
