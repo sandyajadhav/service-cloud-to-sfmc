@@ -54,25 +54,6 @@ app.post('/journeybuilder/p13n/execute', async function(req, res){
 
 
 function logData(req) {
-    exports.logExecuteData.push({
-                                    body: req.body,
-                                    headers: req.headers,
-                                    trailers: req.trailers,
-                                    method: req.method,
-                                    url: req.url,
-                                    params: req.params,
-                                    query: req.query,
-                                    route: req.route,
-                                    cookies: req.cookies,
-                                    ip: req.ip,
-                                    path: req.path,
-                                    host: req.host,
-                                    fresh: req.fresh,
-                                    stale: req.stale,
-                                    protocol: req.protocol,
-                                    secure: req.secure,
-                                    originalUrl: req.originalUrl
-                                });
     console.log("body: " + util.inspect(req.body));
     console.log("headers: " + req.headers);
     console.log("trailers: " + req.trailers);
