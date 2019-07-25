@@ -66,7 +66,7 @@ app.post('/journeybuilder/p13n/execute', async function(req, res){
         // res.redirect(307,url);
 
 
-        Request.post({
+        await  Request.post({
                          "headers": { "content-type": "application/jwt" },
                          "url": "https://sfmc-customactivity-l2.ancestry.com/journeybuilder/p13n/execute",
                          "body": req.body
@@ -86,7 +86,7 @@ app.post('/journeybuilder/p13n/execute', async function(req, res){
 }
 
 
- console.log("Final Resposne: "+JSON.parse(res.body))
+ console.log("Final Resposne: "+res.body);
     //console.log('P13n api is called');
     //await  work();
 });
