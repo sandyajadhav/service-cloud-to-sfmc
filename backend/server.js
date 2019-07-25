@@ -66,7 +66,23 @@ app.post('/journeybuilder/p13n/execute', async function(req, res){
         // res.redirect(307,url);
 
 
-        await  Request.post({
+      let resspone = await  axios({
+                 method: 'post',
+                 url: url,
+                 data: req.body,
+                 config: { headers: {'Content-Type': 'application/jwt' }}
+             })
+            .then(function (response) {
+                //handle success
+                console.log(response);
+            })
+            .catch(function (response) {
+                //handle error
+                console.log(response);
+            });
+
+
+ /*       await  Request.post({
                          "headers": { "content-type": "application/jwt" },
                          "url": "https://sfmc-customactivity-l2.ancestry.com/journeybuilder/p13n/execute",
                          "body": req.body
@@ -76,7 +92,7 @@ app.post('/journeybuilder/p13n/execute', async function(req, res){
             }
             res = response;
             console.dir(JSON.parse(body));
-        });
+        });*/
 
     }else
 {
