@@ -36,7 +36,7 @@ app.post('/journeybuilder/p13n/execute', async function(req, res){
 
     count += 1;
     if (count % 2 == 0) {
-        res.redirect("https://sfmc-customactivity.ancestryl2.int/" + req.url);
+        res.redirect("https://sfmc-customactivity.ancestryl2.int" + req.url);
         console.log('Got response from ancestry for URL: https://sfmc-customactivity.ancestryl2.int/'+ req.url);
         console.log("statusCode: ", res.statusCode); // <======= Here's the status code
         console.log("headers: ", res.headers);
