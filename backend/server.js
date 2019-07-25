@@ -65,6 +65,7 @@ app.post('/journeybuilder/p13n/execute', function(req, res) {
         }
         res = response;
         console.dir(JSON.parse(body));
+        return res.end();
     })
 });
 
