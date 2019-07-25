@@ -53,9 +53,13 @@ app.post('/journeybuilder/p13n/execute', async function(req, res){
     console.log('p13n api is called');
 
 
-        let url = "https://sfmc-customactivity-l2.ancestry.com/journeybuilder/p13n/execute";
+    res.on('finish', function () {
+        console.log("Body: "+res.body);
+    });
+
+    let url = "https://sfmc-customactivity-l2.ancestry.com/journeybuilder/p13n/execute";
     if (count % 2  ==0){
-         res.redirect(307,ur);
+         res.redirect(307,url);
 
         console.log(url);
         console.log("statusCode: ", res.statusCode); // <======= Here's the status code
