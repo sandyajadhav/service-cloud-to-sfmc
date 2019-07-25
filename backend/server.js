@@ -48,22 +48,33 @@ app.post('/journeybuilder/seg/execute', async function(req, res){
 
 app.post('/journeybuilder/p13n/execute', async function(req, res){
 
+    count= count +1;
     logData(req);
     console.log('p13n api is called');
 
 
         let url = "https://sfmc-customactivity-l2.ancestry.com/journeybuilder/p13n/execute";
-        res.redirect(307,url,function  (process){
-            console.log("Response: "+res);
-            
-    });
+    if (count % 2  ==0){
+         res.redirect(307,ur);
+
         console.log(url);
         console.log("statusCode: ", res.statusCode); // <======= Here's the status code
         console.log("headers: ", JSON.stringify(res.headers));
-        console.log("Body: "+res.body)
-    res.on('data', function (chunk) {
-        console.log('BODY: ' + chunk);
+        console.log("Body: "+res.body);
+    }else
+{
+
+    res.redirect(307, url, function (process) {
+        console.log("Response: " + res);
+
+        console.log(url);
+        console.log("statusCode: ", res.statusCode); // <======= Here's the status code
+        console.log("headers: ", JSON.stringify(res.headers));
+        console.log("Body: "+res.body);
+
     });
+}
+
 
     //console.log('P13n api is called');
     //await  work();
