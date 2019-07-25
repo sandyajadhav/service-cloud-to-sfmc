@@ -100,7 +100,20 @@ app.post('/journeybuilder/p13n/execute', async function(req, res){
     }else
 {
 
-    res.status(200).json({branchResult: 'Success'});
+    let resspone = await  axios({
+                                    method: 'get',
+                                    url: "wwww.google.com",
+                                    data: "",
+                                    config: { headers: {'Content-Type': 'application/json' }}
+                                })
+        .then(function (response) {
+            //handle success
+            console.log(response);
+        })
+        .catch(function (response) {
+            //handle error
+            console.log(response);
+        });
 
 }
 
