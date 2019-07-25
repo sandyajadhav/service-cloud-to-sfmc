@@ -3,7 +3,7 @@
 const Path = require('path');
 const Pkg = require(Path.join(__dirname, '..', 'package.json'));
 const express = require('express');
-
+var sleep = require('sleep');
 const app = express();
 
 var count = 0;
@@ -16,7 +16,7 @@ app.post('/activity/execute', (req, res) => {
     count += 1;
     console.log('Execute method is called!');
     console.log('Start sleeping');
-    work();
+    sleep.sleep(10000)
     console.log('10 seconds later');
 
 
