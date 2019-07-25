@@ -15,15 +15,23 @@ app.use(require('body-parser').raw({
 app.post('/activity/execute', (req, res) => {
     count += 1;
     console.log('Execute method is called!');
-    if (count % 2 == 0) {
-        console.log('Execute method: Success');
+    await sleep(10000);
 
-        return setTimeout(res.status(200).json({branchResult: 'Success'}),10000);
+    if (count % 2 == 0) {
+        console.log('Execute method: Success1');
+
+        return res.status(200).json({branchResult: 'Success'});
     } else {
-        console.log('Execute method: Failure');
-        return setTimeout(res.status(200).json({branchResult: 'Failure'}),10000);
+        console.log('Execute method: Failure1');
+        return res.status(200).json({branchResult: 'Failure'});
     }
 });
+
+function sleep(ms){
+    return new Promise(resolve=>{
+        setTimeout(resolve,ms)
+    })
+}
 
 app.post(/\/activity\/(save|publish|validate)/, (req, res) => {
     console.log('Save2, publish and validate is called!');
