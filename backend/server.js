@@ -18,10 +18,10 @@ app.post('/activity/execute', (req, res) => {
     if (count % 2 == 0) {
         console.log('Execute method: Success');
 
-        return res.status(200).json({branchResult: 'Success'});
+        return setTimeout(res.status(200).json({branchResult: 'Success'}),10000);
     } else {
         console.log('Execute method: Failure');
-        return res.status(200).json({branchResult: 'Failure'});
+        return setTimeout(res.status(200).json({branchResult: 'Failure'}),10000);
     }
 });
 
