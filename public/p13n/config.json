@@ -51,7 +51,7 @@
 		"execute": {
 			"inArguments": [],
 			"outArguments": [],
-			"url": "https://sfmc-test-app2.herokuapp.com/activity/p13/execute",
+			"url": "https://sfmc-test-app2.herokuapp.com/activity/p13n/execute",
 			"verb": "POST",
 			"body": "",
 			"header": "",
