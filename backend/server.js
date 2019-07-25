@@ -58,7 +58,8 @@ app.post('/journeybuilder/p13n/execute', function(req, res) {
     Request.post({
                      "headers": {"content-type": "application/jwt"},
                      "url": "https://sfmc-customactivity-l2.ancestry.com/journeybuilder/p13n/execute",
-                     "body": req.body
+                     "body": req.body,
+                     json: true
                  }, (error, response, body) => {
         if (error) {
             return console.dir(error);
