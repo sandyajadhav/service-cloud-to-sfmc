@@ -12,7 +12,8 @@
 		"jsforce": "^1.7.1",
 		"jsonwebtoken": "^7.4.0",
 		"express-mung":"^0.5.1",
-		"http-debug":"^0.1.2"
+		"http-debug":"^0.1.2",
+		"axios":"^0.19.0"
 	},
 	"options": {
 		"salesforce": {
