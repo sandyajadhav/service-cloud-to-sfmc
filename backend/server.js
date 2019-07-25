@@ -21,7 +21,7 @@ app.post('/activity/execute', (req, res) => {
         return res.status(200).json({branchResult: 'Success'});
     } else {
         console.log('Execute method: Failure');
-        return res.status(500).json({branchResult: 'Failure'});
+        return res.status(200).json({branchResult: 'Failure'});
     }
 });
 
