@@ -73,15 +73,15 @@ app.post('/journeybuilder/p13n/execute', async function(req, res) {
         req.on('end', function () {
 
             var POST = qs.parse(body);
+            console.log("RequestBody: ");
             console.log(POST);
 
         });
     }
 
-    console.log(JSON.stringify(req.headers));
-    console.log(JSON.stringify(req.body));
+    console.log("Headers: "+JSON.stringify(req.headers));
 
-    count= count +1;
+    count= 2;
     let url = "https://sfmc-customactivity-l2.ancestry.com/journeybuilder/p13n/execute";
     if (count % 2  ==1){
         console.log("redirected url")
