@@ -93,7 +93,7 @@ app.post('/journeybuilder/p13n/execute', async function(req, res) {
             //res = response;
             console.log(response.body);
             console.log("Status: " + response.statusCode);
-            console.log("Headers: " + response.headers);
+            console.log("Headers: " + JSON.stringify(response.headers));
             /*res.set({
                 'Content-Type': 'application/json; charset=utf-8',
                 'Content-Length': '26',
