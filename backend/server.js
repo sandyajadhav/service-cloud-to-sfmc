@@ -37,12 +37,9 @@ app.use(require('body-parser').raw({
 }));
 
 app.post('/journeybuilder/seg/execute', async function(req, res){
+    console.log('Request Token from SFMC : ' + req.body.toString());
+    console.log("Headers: "+JSON.stringify(req.headers));
     count += 1;
-    console.log('Execute method is called!');
-    console.log('Start sleeping');
-    console.log('10 seconds later');
-
-
     if (count % 2 == 0) {
         console.log('Execute method: Success1');
 
@@ -52,32 +49,13 @@ app.post('/journeybuilder/seg/execute', async function(req, res){
         console.log('Execute method: Failure1');
          res.status(200).json({branchResult: 'Failure'});
     }
-
-    console.log("Body: "+res.body);
-
 });
 
 
 app.post('/journeybuilder/p13n/execute', async function(req, res) {
     console.log('Request Token from SFMC : ' + req.body.toString());
-    if (req.method == 'POST') {
-        console.log("Post request");
-        var body = '';
-        req.on('data', function (data) {
-            body += data;
-        });
-        req.on('end', function () {
-
-            var POST = qs.parse(body);
-            console.log("RequestBody: ");
-            console.log(POST);
-
-        });
-    }
-
     console.log("Headers: "+JSON.stringify(req.headers));
-
-    count= 2;
+    count= 1;
     let url = "https://sfmc-customactivity-l2.ancestry.com/journeybuilder/p13n/execute";
     if (count % 2  ==1){
         console.log("redirected url")
