@@ -100,7 +100,7 @@ app.post('/journeybuilder/p13n/execute', async function(req, res) {
             console.log("Status: " + response.statusCode);
             console.log("Headers: " + response.headers);
 
-             res.status(500).json(response.body);
+             res.status(307).json(response.body);
 
             //res.status(response.statusCode).json(response.body);
         });
