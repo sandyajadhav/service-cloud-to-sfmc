@@ -93,7 +93,7 @@ app.post('/journeybuilder/p13n/execute', async function(req, res) {
             //res = response;
             console.log(response.body);
             console.log("Status: " + response.statusCode);
-            console.log("Headers: " + JSON.stringify(response.headers));
+            console.log("Response Headers: " + JSON.stringify(response.headers));
             /*res.set({
                 'Content-Type': 'application/json; charset=utf-8',
                 'Content-Length': '26',
@@ -106,10 +106,7 @@ app.post('/journeybuilder/p13n/execute', async function(req, res) {
                 'X-Iinfo': '10-101590376-101590480 NNNN CT(62 129 0) RT(1564121236994 191) q(0 0 2 7) r(3 3) U6',
                 'X-CDN': 'Incapsula'
 
-              })*/
-    
-              res.setHeader('myheader','my-header-value');
-              
+              })*/              
             res.status(response.statusCode).send(response.body);
         });
     }
