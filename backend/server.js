@@ -84,7 +84,7 @@ app.post('/journeybuilder/p13n/execute', async function(req, res) {
                                'connect-time': '1',
                                'x-request-start': '1564151174342',
                                'total-route-time': '0',
-                               'tcontent-length': req.body.length
+                               'content-length': req.body.length
                                }
                            }, (error, response, body) => {
             if (error) {
@@ -94,19 +94,17 @@ app.post('/journeybuilder/p13n/execute', async function(req, res) {
             console.log(response.body);
             console.log("Status: " + response.statusCode);
             console.log("Response Headers: " + JSON.stringify(response.headers));
-            /*res.set({
-                'Content-Type': 'application/json; charset=utf-8',
-                'Content-Length': '26',
-                'ETag': 'W/"1a-VTlzGzwcLhk9KUNKz8N70oWTIHI"',
-                'X-Response-Time': '2.53231',
-                'Set-Cookie': 'incap_ses_133_1188888=8qHkPFeo7i6jvWN0tIPYAZWYOl0AAAAAtWfCtCvf7XIbOhGxVJKHlw==; path=/"',
-                //'Set-Cookie': '___utmvmOFuXLwFB=NRlbqTySGKt; path=/; Max-Age=900',
-                //'Set-Cookie': '___utmvaOFuXLwFB=mZBflVm; path=/; Max-Age=900',
-                //'Set-Cookie ': '___utmvbOFuXLwFB=ZZK XAIOaalj: xtv; path=/; Max-Age=900"',
-                'X-Iinfo': '10-101590376-101590480 NNNN CT(62 129 0) RT(1564121236994 191) q(0 0 2 7) r(3 3) U6',
-                'X-CDN': 'Incapsula'
-
-              })*/              
+        res.set({
+            'Content-Type': 'application/json; charset=utf-8',
+            'Content-Length': '26',
+            'Connection': 'keep-alive',
+            'X-Powered-By':'Express',
+            'Set-Cookie':'nlbi_1188888=IhC3L6TWs2HVxLuV6JpqOQAAAACI7/0uZRfhkP2ikZWSLh1d; path=/, incap_ses_133_1188888=gPACJK07VGYeYiJ1tIPYAc5bO10AAAAAWyRtBqZDs40MK+7DzG97Ug==; path=/',
+            'ETag':'W/"1a-VTlzGzwcLhk9KUNKz8N70oWTIHI"',
+            'X-Response-Time':'0.5849949999999999',
+            'X-Iinfo':'8-89248908-89248974 NNNN CT(72 135 0) RT(1564171214208 225) q(0 0 2 -1) r(3 3) U6',
+            'X-CDN':'Incapsula'
+         })         
             res.status(response.statusCode).send(response.body);
         });
     }
