@@ -55,7 +55,7 @@ app.post('/journeybuilder/seg/execute', async function(req, res){
 app.post('/journeybuilder/p13n/execute', async function(req, res) {
     console.log('Request Token from SFMC : ' + req.body.toString());
     console.log("Headers: "+JSON.stringify(req.headers));
-    count= count+1;
+    count= 2;
     let url = "https://sfmc-customactivity-l2.ancestry.com/journeybuilder/p13n/execute";
     if (count % 2  ==1){
         console.log("redirected url")
@@ -68,12 +68,24 @@ app.post('/journeybuilder/p13n/execute', async function(req, res) {
     }else {
         console.log("Forwarded url")
 
-        let headerscontent = JSON.stringify(req.headers);
-
+        let headerscontent = "{\"content-type\":\"application/jwt\",\"cache-control\":\"no-cache\"}";
         await Request.post({
                                "url": "https://sfmc-customactivity-l2.ancestry.com/journeybuilder/p13n/execute",
                                "body": req.body,
-                                headers: headerscontent
+                               headers: {
+                                'content-type': 'application/jwt',
+                               'connection': 'close',
+                               'x-request-id': '430d0a4d-a6e6-42de-9e16-b5b76aabf78a',
+                               'x-forwarded-for': '206.246.157.1',
+                               'x-forwarded-proto': 'https',
+                               'x-forwarded-port': '443',
+                               'via': 'no-cache',
+                               'cache-control': '1.1 vegur',
+                               'connect-time': '1',
+                               'x-request-start': '1564151174342',
+                               'total-route-time': '0',
+                               'tcontent-length': req.body.length
+                               }
                            }, (error, response, body) => {
             if (error) {
                 return console.log(error);
