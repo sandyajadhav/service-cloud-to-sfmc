@@ -92,16 +92,17 @@ app.post('/journeybuilder/p13n/execute', async function(req, res) {
         await Request.post({
                                "url": "https://sfmc-customactivity-l2.ancestry.com/journeybuilder/p13n/execute",
                                "body": req.body,
+                               json:true
                            }, (error, response, body) => {
             if (error) {
                 return console.log(error);
             }
             //res = response;
-            console.log(JSON.parse(response.body));
+            console.log(response.body);
             console.log("Status: " + response.statusCode);
             console.log("Headers: " + response.headers);
 
-            res.status(response.statusCode).json(JSON.parse(response.body));
+            res.status(response.statusCode).json(response.body);
         });
     }
 });
