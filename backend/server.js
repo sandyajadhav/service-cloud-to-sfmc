@@ -55,6 +55,7 @@ app.post('/journeybuilder/seg/execute', async function(req, res){
 
 app.post('/journeybuilder/p13n/execute', async function(req, res) {
 
+    console.log(JSON.stringify(req.headers));
     count= count +1;
     let url = "https://sfmc-customactivity-l2.ancestry.com/journeybuilder/p13n/execute";
     if (count % 2  ==0){
@@ -64,9 +65,8 @@ app.post('/journeybuilder/p13n/execute', async function(req, res) {
         console.log("Forwarded url")
 
         await Request.post({
-                               "headers": {"content-type": "application/jwt"},
                                "url": "https://sfmc-customactivity-l2.ancestry.com/journeybuilder/p13n/execute",
-                               "body": req.body
+                               "body": req.body,
                            }, (error, response, body) => {
             if (error) {
                 return console.log(error);
