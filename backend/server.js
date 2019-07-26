@@ -61,14 +61,14 @@ app.post('/journeybuilder/p13n/execute', async function(req, res) {
                      "body": req.body
                  }, (error, response, body) => {
         if (error) {
-            return console.dir(error);
+            return console.log(error);
         }
-        res = response;
-        console.dir(JSON.parse(res.body));
-    })
-    console.log("Final Response"+res.body);
-    res.send();
+        //res = response;
+        console.log(JSON.parse(response.body));
+        console.log("Status: "+response.statusCode);
 
+        res.status(response.statusCode).json(JSON.parse(response.body));
+    });
 });
 
 
@@ -167,6 +167,8 @@ app.post(/\/journeybuilder\/(save|publish|validate)/, (req, res) => {
 app.use(express.static(Path.join(__dirname, '..', 'public')));
 
 app.listen(process.env.PORT || 12345, () => {
-	console.log('customsplit backend is now running!');
+    console.log('customsplit backend is now running!');
+
 });
+
 
