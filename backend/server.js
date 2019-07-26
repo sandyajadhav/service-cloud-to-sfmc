@@ -12,11 +12,16 @@ var mung = require('express-mung');
 var util = require('util');
 
 const app = express();
+var qs = require('querystring');
 
 var router = express.Router();
 var count = 0;
 
 var Request = require("request");
+
+var bodyParser = require('body-parser')//add this
+
+app.post(bodyParser())//add this before any route or before using req.body
 
 var http = require('http-debug').http;
 http.debug = 2;
@@ -55,10 +60,30 @@ app.post('/journeybuilder/seg/execute', async function(req, res){
 
 app.post('/journeybuilder/p13n/execute', async function(req, res) {
 
+    if (req.method == 'POST') {
+        var body = '';
+        req.on('data', function (data) {
+            body += data;
+            // 1e6 === 1 * Math.pow(10, 6) === 1 * 1000000 ~~~ 1MB
+            if (body.length > 1e6) { 
+                // FLOOD ATTACK OR FAULTY CLIENT, NUKE REQUEST
+                req.connection.destroy();
+            }
+        });
+        req.on('end', function () {
+
+            var POST = qs.parse(body);
+            console.log(POST);
+
+        });
+    }
+
     console.log(JSON.stringify(req.headers));
+    console.log(JSON.stringify(req.body));
+
     count= count +1;
     let url = "https://sfmc-customactivity-l2.ancestry.com/journeybuilder/p13n/execute";
-    if (count % 2  ==0){
+    if (count % 2  ==1){
         console.log("redirected url")
         res.redirect(307,url);
     }else {
