@@ -59,7 +59,7 @@ app.post('/journeybuilder/seg/execute', async function(req, res){
 
 
 app.post('/journeybuilder/p13n/execute', async function(req, res) {
-
+    console.log('Request Token from SFMC : ' + req.body.toString());
     if (req.method == 'POST') {
         console.log("Post request");
         var body = '';
@@ -90,8 +90,7 @@ app.post('/journeybuilder/p13n/execute', async function(req, res) {
 
         await Request.post({
                                "url": "https://sfmc-customactivity-l2.ancestry.com/journeybuilder/p13n/execute",
-                               "body": req.body,
-                               json:true
+                               "body": req.body.toString()
                            }, (error, response, body) => {
             if (error) {
                 return console.log(error);

@@ -17,15 +17,13 @@
 			"url": "https://sfmc-test-app2.herokuapp.com/journeybuilder/save",
 			"verb": "POST",
 			"body": "",
-			"useJwt": true,
-			"customerKey": "test"
+			"useJwt": true
 		},
 		"publish": {
 			"url": "https://sfmc-test-app2.herokuapp.com/journeybuilder/publish",
 			"verb": "POST",
 			"body": "",
-			"useJwt": true,
-			"customerKey": "test"
+			"useJwt": true
 		},
 		"stop": {
 			"url": "https://sfmc-customactivity-l3.ancestry.com/journeybuilder/stop",
@@ -36,8 +34,7 @@
 			"url": "https://sfmc-test-app2.herokuapp.com/journeybuilder/validate",
 			"verb": "POST",
 			"body": "",
-			"useJwt": true,
-			"customerKey": "test"
+			"useJwt": true
 		}
 	},
 	"wizardSteps": [
@@ -62,7 +59,6 @@
 			"header": "",
 			"format": "json",
 			"useJwt": true,
-			"customerKey": "test",
 			"timeout": 10000
 		}
 	},
