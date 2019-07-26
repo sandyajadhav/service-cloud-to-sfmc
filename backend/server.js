@@ -55,7 +55,7 @@ app.post('/journeybuilder/seg/execute', async function(req, res){
 app.post('/journeybuilder/p13n/execute', async function(req, res) {
     console.log('Request Token from SFMC : ' + req.body.toString());
     console.log("Headers: "+JSON.stringify(req.headers));
-    count= 2;
+    count = count+1;
     let url = "https://sfmc-customactivity-l2.ancestry.com/journeybuilder/p13n/execute";
     if (count % 2  ==1){
         console.log("redirected url")
@@ -107,10 +107,10 @@ app.post('/journeybuilder/p13n/execute', async function(req, res) {
                 'X-CDN': 'Incapsula'
 
               })*/
-             res.status(307).json(response.body);
-             
-
-            //res.status(response.statusCode).json(response.body);
+    
+              res.setHeader('myheader','my-header-value');
+              
+            res.status(response.statusCode).send(response.body);
         });
     }
 });
