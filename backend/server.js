@@ -84,7 +84,8 @@ app.post('/journeybuilder/p13n/execute', async function(req, res) {
                                'connect-time': '1',
                                'x-request-start': '1564151174342',
                                'total-route-time': '0',
-                               'content-length': req.body.length
+                               'content-length': req.body.length,
+                               'singularityheader':'appId=788*ctrlguid=1552885233*acctguid=c6f9028b-9792-49f7-a36f-01b2bd8101dc*ts=1564192432837*btid=87532*snapenable=True*guid=93f65009-1c49-4db8-9343-fd29e3f51bcd*exitguid=676*unresolvedexitid=0*cidfrom=1885*etypeorder=HTTP*esubtype=HTTP*cidto={[UNRESOLVED][3575001]}'
                                }
                            }, (error, response, body) => {
             if (error) {
