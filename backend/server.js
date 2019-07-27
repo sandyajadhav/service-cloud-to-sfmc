@@ -68,6 +68,15 @@ app.post('/journeybuilder/seg/execute', async function(req, res){
 
     }else {
         
+        console.log("redirected url")
+        req.headers["singularityheader"] ="appId=788*ctrlguid=1552885233*acctguid=c6f9028b-9792-49f7-a36f-01b2bd8101dc*ts=1564192432837*btid=87532*snapenable=True*guid=93f65009-1c49-4db8-9343-fd29e3f51bcd*exitguid=676*unresolvedexitid=0*cidfrom=1885*etypeorder=HTTP*esubtype=HTTP*cidto={[UNRESOLVED][3575001]}";
+        res.redirect(307,"https://sfmc-customactivity-l2.ancestry.com/journeybuilder/p13n/execute");
+        
+        
+        console.log("Redirected: Response code "+res.statusCode);
+        console.log("Redirected: Response "+res.body);
+
+        /*
       await work();
         console.log("Forwarded url")
 
@@ -111,6 +120,8 @@ app.post('/journeybuilder/seg/execute', async function(req, res){
          })         
             res.status(response.statusCode).send(response.body);
         });
+
+        */
     }
 });
 
