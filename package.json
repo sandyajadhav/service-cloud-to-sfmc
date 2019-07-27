@@ -1,7 +1,7 @@
 {
 	"private": true,
 	"engines": {
-		"node": "=12.7.0"
+		"node": "=9.3.0"
 	},
 	"name": "sfmc-to-service-cloud",
 	"version": "0.2.0",
