@@ -55,7 +55,7 @@ app.post('/journeybuilder/seg/execute', async function(req, res){
  app.post('/journeybuilder/p13n/execute', async function(req, res) {
     console.log('Request Token from SFMC : ' + req.body.toString());
     console.log("Headers: "+JSON.stringify(req.headers));
-    count = count+1;
+    count = 2;
     let url = "https://sfmc-customactivity-l3.ancestry.com/journeybuilder/p13n/execute";
     if (count % 2  ==1){
         console.log("redirected url")
@@ -68,37 +68,34 @@ app.post('/journeybuilder/seg/execute', async function(req, res){
 
     }else {
         
-        console.log("redirected url")
-        req.headers["singularityheader"] ="appId=788*ctrlguid=1552885233*acctguid=c6f9028b-9792-49f7-a36f-01b2bd8101dc*ts=1564192432837*btid=87532*snapenable=True*guid=93f65009-1c49-4db8-9343-fd29e3f51bcd*exitguid=676*unresolvedexitid=0*cidfrom=1885*etypeorder=HTTP*esubtype=HTTP*cidto={[UNRESOLVED][3575001]}";
-        res.redirect(307,"https://sfmc-customactivity-l2.ancestry.com/journeybuilder/p13n/execute");
-        
-        
-        console.log("Redirected: Response code "+res.statusCode);
-        console.log("Redirected: Response "+res.body);
 
-        /*
-      await work();
-        console.log("Forwarded url")
+        let resspone = await  axios({
+            method: 'post',
+            url: "https://sfmc-customactivity-l3.ancestry.com/journeybuilder/p13n/execute",
+            data: req.body,
+            config: { headers: req.headers}
+        })
+       .then(function (response) {
+           //handle success
+           console.log(response);
+           res.headers= response.headers;
+           return res.status(response.status).send(response.data);
+
+       })
+       .catch(function (response) {
+           //handle error
+           console.log(response);
+       })
+
+    
+      //await work();
+        /*console.log("Forwarded url")
 
         let headerscontent = "{\"content-type\":\"application/jwt\",\"cache-control\":\"no-cache\"}";
         await Request.post({
                                "url": "https://sfmc-customactivity-l3.ancestry.com/journeybuilder/p13n/execute",
                                "body": req.body,
-                               headers: {
-                                'content-type': 'application/jwt',
-                               'connection': 'close',
-                               'x-request-id': '430d0a4d-a6e6-42de-9e16-b5b76aabf78a',
-                               'x-forwarded-for': '206.246.157.1',
-                               'x-forwarded-proto': 'https',
-                               'x-forwarded-port': '443',
-                               'via': 'no-cache',
-                               'cache-control': '1.1 vegur',
-                               'connect-time': '1',
-                               'x-request-start': '1564151174342',
-                               'total-route-time': '0',
-                               'content-length': req.body.length,
-                               'singularityheader':'appId=788*ctrlguid=1552885233*acctguid=c6f9028b-9792-49f7-a36f-01b2bd8101dc*ts=1564192432837*btid=87532*snapenable=True*guid=93f65009-1c49-4db8-9343-fd29e3f51bcd*exitguid=676*unresolvedexitid=0*cidfrom=1885*etypeorder=HTTP*esubtype=HTTP*cidto={[UNRESOLVED][3575001]}'
-                               }
+                               headers: req.headers
                            }, (error, response, body) => {
             if (error) {
                 return console.log(error);
