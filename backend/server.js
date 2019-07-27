@@ -22,7 +22,7 @@ var Request = require("request");
 var bodyParser = require('body-parser')//add this
 
 app.post(bodyParser())//add this before any route or before using req.body
-
+require("tls").DEFAULT_ECDH_CURVE = "auto"
 var http = require('http-debug').http;
 http.debug = 2;
 app.use(mung.json(
@@ -71,7 +71,7 @@ app.post('/journeybuilder/seg/execute', async function(req, res){
         method: 'post',
         url: "https://sfmc-customactivity-l2.ancestry.com/journeybuilder/p13n/execute",
         data: req.body,
-        config: { headers: req.headers}
+        headers: req.headers
     })
    .then(function (response) {
        //handle success
@@ -93,7 +93,7 @@ app.post('/journeybuilder/seg/execute', async function(req, res){
             method: 'post',
             url: "https://sfmc-customactivity-l3.ancestry.com/journeybuilder/p13n/execute",
             data: req.body,
-            config: { headers: req.headers}
+            headers: req.headers
         })
        .then(function (response) {
            //handle success
