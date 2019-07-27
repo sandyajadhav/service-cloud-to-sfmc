@@ -56,7 +56,7 @@ app.post('/journeybuilder/p13n/execute', async function(req, res) {
     console.log('Request Token from SFMC : ' + req.body.toString());
     console.log("Headers: "+JSON.stringify(req.headers));
     count = count+1;
-    let url = "https://sfmc-customactivity-l2.ancestry.com/journeybuilder/p13n/execute";
+    let url = "https://sfmc-customactivity-l3.ancestry.com/journeybuilder/p13n/execute";
     if (count % 2  ==1){
         console.log("redirected url")
         req.headers["singularityheader"] ="appId=788*ctrlguid=1552885233*acctguid=c6f9028b-9792-49f7-a36f-01b2bd8101dc*ts=1564192432837*btid=87532*snapenable=True*guid=93f65009-1c49-4db8-9343-fd29e3f51bcd*exitguid=676*unresolvedexitid=0*cidfrom=1885*etypeorder=HTTP*esubtype=HTTP*cidto={[UNRESOLVED][3575001]}";
@@ -71,7 +71,7 @@ app.post('/journeybuilder/p13n/execute', async function(req, res) {
 
         let headerscontent = "{\"content-type\":\"application/jwt\",\"cache-control\":\"no-cache\"}";
         await Request.post({
-                               "url": "https://sfmc-customactivity-l2.ancestry.com/journeybuilder/p13n/execute",
+                               "url": "https://sfmc-customactivity-l3.ancestry.com/journeybuilder/p13n/execute",
                                "body": req.body,
                                headers: {
                                 'content-type': 'application/jwt',
