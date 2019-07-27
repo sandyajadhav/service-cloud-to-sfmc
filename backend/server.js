@@ -52,7 +52,7 @@ app.post('/journeybuilder/seg/execute', async function(req, res){
 });
 
 
-app.post('/journeybuilder/p13n/execute', async function(req, res) {
+ app.post('/journeybuilder/p13n/execute', async function(req, res) {
     console.log('Request Token from SFMC : ' + req.body.toString());
     console.log("Headers: "+JSON.stringify(req.headers));
     count = count+1;
@@ -67,6 +67,8 @@ app.post('/journeybuilder/p13n/execute', async function(req, res) {
         console.log("Redirected: Response "+res.body);
 
     }else {
+        
+      await work();
         console.log("Forwarded url")
 
         let headerscontent = "{\"content-type\":\"application/jwt\",\"cache-control\":\"no-cache\"}";
