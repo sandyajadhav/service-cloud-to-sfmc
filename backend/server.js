@@ -55,21 +55,20 @@ app.post('/journeybuilder/seg/execute', async function(req, res){
  app.post('/journeybuilder/p13n/execute', async function(req, res) {
     console.log('Request Token from SFMC : ' + req.body.toString());
     console.log("Headers: "+JSON.stringify(req.headers));
+    let headerJson = JSON.stringify(req.headers);
     count = count+1;
     let url = "https://sfmc-customactivity-l3.ancestry.com/journeybuilder/p13n/execute";
     if (count % 2  ==1){
-       /* console.log("redirected url")
+        console.log("redirected url")
         req.headers["singularityheader"] ="appId=788*ctrlguid=1552885233*acctguid=c6f9028b-9792-49f7-a36f-01b2bd8101dc*ts=1564192432837*btid=87532*snapenable=True*guid=93f65009-1c49-4db8-9343-fd29e3f51bcd*exitguid=676*unresolvedexitid=0*cidfrom=1885*etypeorder=HTTP*esubtype=HTTP*cidto={[UNRESOLVED][3575001]}";
         res.redirect(307,url);
-        
-        
         console.log("Redirected: Response code "+res.statusCode);
         console.log("Redirected: Response "+res.body);
-        */
+        
 
-       let resspone = await  axios({
+       /*let resspone = await  axios({
         method: 'post',
-        url: "https://sfmc-customactivity-l2.ancestry.com/journeybuilder/p13n/execute",
+        url: "https://sfmc-customactivity-l3.ancestry.com/journeybuilder/p13n/execute",
         data: req.body,
         headers: req.headers
     })
@@ -83,7 +82,7 @@ app.post('/journeybuilder/seg/execute', async function(req, res){
    .catch(function (response) {
        //handle error
        console.log(response);
-   })
+   }) */
 
 
     }else {
@@ -93,7 +92,10 @@ app.post('/journeybuilder/seg/execute', async function(req, res){
             method: 'post',
             url: "https://sfmc-customactivity-l3.ancestry.com/journeybuilder/p13n/execute",
             data: req.body,
-            headers: req.headers
+            requestCert: true,
+            headers: {
+                'Content-Type': 'application/jwt'
+             }
         })
        .then(function (response) {
            //handle success
