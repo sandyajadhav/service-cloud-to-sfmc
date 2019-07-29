@@ -87,6 +87,9 @@ app.post('/journeybuilder/seg/execute', async function(req, res){
 
     }else {
         
+        console.log("Started sleeping")
+        work(30000);
+        console.log('30 seconds later');
 
         let resspone = await  axios({
             method: 'post',
@@ -225,11 +228,9 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-async function work() {
+async function work(ms) {
 
-    console.log('Start sleeping');
-    await sleep(60000);
-    console.log('Five seconds later');
+    await sleep(ms);
 }
 
 app.post(/\/journeybuilder\/(save|publish|validate)/, (req, res) => {
