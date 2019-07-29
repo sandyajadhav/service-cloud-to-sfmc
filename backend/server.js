@@ -88,7 +88,7 @@ app.post('/journeybuilder/seg/execute', async function(req, res){
     }else {
         
         console.log("Started sleeping")
-        work(30000);
+       await work(30000);
         console.log('30 seconds later');
 
         let resspone = await  axios({
